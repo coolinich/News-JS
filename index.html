@@ -8,13 +8,16 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Custom stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
     <div class="form-container container">
         <div class="card">
             <div class="card-content">
-                <div class="row">
+                <div class="row filters">
                     <div class="input-field col s12 m6">
                         <select class="country">
                             <option value="ua" selected>UA</option>
@@ -32,11 +35,23 @@
                         <label>Choose your category</label>
                     </div>
                 </div>
+                <div class="row">
+                    <!-- <h6>Or search by specific keyword</h6> -->
+                    <form name="search">
+                        <div class="input-field search-wrapper col s12 m12">
+                            <label for="search">Or search by specific keyword</label>
+                            <input id="search" type="text">
+                            <i class="material-icons">search</i>
+                            <!-- <div class="search-results"></div> -->
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
     <div class="news-container container">
-        <div class="row"></div>
+        <div class="row info"></div>
+        <div class="row content"></div>
     </div>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
