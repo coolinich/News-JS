@@ -10,7 +10,9 @@ const searchForm = document.forms["search"];
 const searchBtn = searchForm.querySelector('i');
 const searchInput = searchForm.querySelector('input#search');
 
-
+/**
+ * getCountryTechnolodyHandler - function which makes request for TopHeadlines, gets all news according to selected filters and calls function for displaying them
+*/
 const getCountryTechnolodyHandler = () => {
     const country = countrySelect.value;
     const category = categorySelect.value;
@@ -23,6 +25,9 @@ const getCountryTechnolodyHandler = () => {
     }, country, category);
 };
 
+/**
+ * getSearchResultsHandler - function which makes request for search results, gets all news according to search keyword and calls function for displaying them.
+*/
 const getSearchResultsHandler = (e) => {
     e.preventDefault();
     const searchStr = encodeURI(searchInput.value);
@@ -33,6 +38,7 @@ const getSearchResultsHandler = (e) => {
             newsUI.addInfo(totalResults);
             articles.forEach(news => newsUI.addNews(news));
         }, searchStr);
+        // toogle can't be used here as it doesn't work properly when search is executed with different keywords
         if (!filterBySelect.classList.contains('not-active')) filterBySelect.classList.add('not-active');
     } else emptySearchHandler();
 
@@ -46,6 +52,9 @@ const resetSearchForm = () => {
     }
 }
 
+/**
+ * emptySearchHandler - function  which handle the case of empty search keyword after successful searching
+*/
 const emptySearchHandler = () => {
     if (filterBySelect.classList.contains('not-active') && !searchInput.value) {
         filterBySelect.classList.remove('not-active');
@@ -55,7 +64,7 @@ const emptySearchHandler = () => {
 
 
 
-
+// Calls for Event Handlers
 countrySelect.addEventListener("change", getCountryTechnolodyHandler);
 categorySelect.addEventListener("change", getCountryTechnolodyHandler);
 filterBySelect.addEventListener("click", resetSearchForm);
