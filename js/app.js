@@ -21,7 +21,7 @@ const getCountryTechnolodyHandler = () => {
         const { articles, totalResults } = res;
         newsUI.clearContainer();
         newsUI.addInfo(totalResults);
-        articles.forEach(news => newsUI.addNews(news));
+        articles?.forEach(news => newsUI.addNews(news));
     }, country, category);
 };
 
@@ -38,7 +38,6 @@ const getSearchResultsHandler = (e) => {
             newsUI.addInfo(totalResults);
             articles.forEach(news => newsUI.addNews(news));
         }, searchStr);
-        // toogle can't be used here as it doesn't work properly when search is executed with different keywords
         if (!filterBySelect.classList.contains('not-active')) filterBySelect.classList.add('not-active');
     } else emptySearchHandler();
 
@@ -61,8 +60,6 @@ const emptySearchHandler = () => {
         getCountryTechnolodyHandler();
     }
 }
-
-
 
 // Calls for Event Handlers
 countrySelect.addEventListener("change", getCountryTechnolodyHandler);
